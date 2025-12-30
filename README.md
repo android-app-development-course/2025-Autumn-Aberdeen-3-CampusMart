@@ -28,5 +28,20 @@ CampusMart旨在为在校学生提供一个 **简洁、高效、低成本、近�
 - 生活服务入口一键跳转（水费，网费，教务平台）
 
 ## 技术实现
+1. android app实现
+  - 使用 XML 布局文件定义界面结构，结合自定义 drawable 资源实现 UI 美化。
+  - 核心页面均通过Activity实现，同时使用Activity+Fragment实现导航栏和多页面跳转，通过RecyclerView+Adpater实现商品列表等可滑动页面
+  - 用OkHttp库发送网络请求，支持同步/异步请求，通过Request和RequestBody构建请求，Callback处理响应。
+  - 使用Gson库解析服务器返回的 JSON 数据
+  - SharedPreferences：用于存储轻量级用户数据，如登陆用户信息
+  - 使用Glide加载商品图片，同时在上传商品图片时进行压缩
+  - 通过包名com.tencent.mm获取微信启动意图，实现微信跳转。通过Intent.ACTION_VIEW启动系统浏览器打开指定 URL
+2. 后端实现
+  - 使用SpringMVC实现后端整体框架
+  - 使用SpringBoot搭建项目
+  - 使用Mysql存储结构化数据
+  - 使用Mybatis实现DAO层逻辑
+  - 使用Minio实现图像存储
+  - 同时通过拦截器实现token校验等功能
 
 ## 如何部署

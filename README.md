@@ -96,8 +96,9 @@ CampusMart旨在为在校学生提供一个 **简洁、高效、低成本、近�
    - 对齐minio地址和端口号 （endpoint）
    - 对齐minio配置（access-key，secret-key）
    - 对齐mysql地址和端口号
-     
-     url: jdbc:mysql://\<host\>:\<port\>/campusmart?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2b8
+```bash
+url: jdbc:mysql://\<host\>:\<port\>/campusmart?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2b8
+```
    - 对齐mysql配置 (username, password)
 8. 启动后端服务（运行sever/web/src/main/java/org/example/CampusMart/WebApplication.java）
 9. 更改前端配置文件 Android/app/src/main/res/values/config.xml

@@ -31,10 +31,11 @@ CampusMart旨在为在校学生提供一个 **简洁、高效、低成本、近�
 ```bash
 2025-Autumn-Aberdeen-3-CampusMart/
 ├── 文档文件
-│   ├── Campus Mart App Business Plan Report.pdf #商业报告书
+│   ├── Campus Mart App Business Plan Report.pdf #商业报告书        
 │   ├── Campus Mart App Business Plan.pdf        #第一阶段报告ppt
-│   ├── README.md                                  
-│   └── UI_design.pdf                            
+│   ├── README.md
+│   ├── Test.pptx                                #第三阶段报告   
+│   └── UI_design.pdf                            #第二阶段报告
 ├── 应用安装包
 │   └── apks/
 │       ├── app-offline.apk #离线板本安装包，用于UI展示
@@ -61,7 +62,7 @@ CampusMart旨在为在校学生提供一个 **简洁、高效、低成本、近�
 │       └── web/              #Controller，DAO层实现，WebApplicat启动类，拦截器等后端代码/配置文件application.yml
 └── 数据库脚本
     └── database generater/
-        └── campusmart-build-database.sql
+        └── campusmart-build-database.sql #生成数据库的sql脚本
 ```
 
 ## 技术实现
@@ -83,4 +84,20 @@ CampusMart旨在为在校学生提供一个 **简洁、高效、低成本、近�
 
 ## 如何部署
 由于成本原因，项目暂为部署到云端服务器，需在本地部署后在同一网络下使用
-1. 
+1. 安装mysql
+2. 启动mysql
+3. 运行mysql脚本创建数据库
+4. 安装minio
+5. 配置minio 官方文档：https://min-io.cn/product/overview
+6. 启动minio服务
+7. 更改后端配置文件 server/web/src/main/resources/application.yml
+   - 对齐minio地址和端口号 （endpoint）
+   - 对齐minio配置（access-key，secret-key）
+   - 对齐mysql地址和端口号 （url: jdbc:mysql://<host>:<port>/campusmart?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2b8）
+   - 对齐mysql配置 (username, password)
+8. 启动后端服务（运行sever/web/src/main/java/org/example/CampusMart/WebApplication.java）
+9. 更改前端配置文件 Android/app/src/main/res/values/config.xml
+   - 改为后端ip+端口号
+10. 生成apk
+11. 安装后在同一网络下可以使用
+     
